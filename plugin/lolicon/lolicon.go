@@ -20,7 +20,7 @@ import (
 )
 
 const (
-	api      = "https://api.lolicon.app/setu/v2"
+	api      = "https://px2.rainchan.win/"
 	capacity = 10
 )
 
@@ -33,10 +33,10 @@ func init() {
 	en := control.Register("lolicon", &ctrl.Options[*zero.Ctx]{
 		DisableOnDefault: false,
 		Help: "lolicon\n" +
-			"- 来份萝莉\n" +
+			"- 来点涩图\n" +
 			"- 设置随机图片地址[http...]",
 	}).ApplySingle(ctxext.DefaultSingle)
-	en.OnFullMatch("来份萝莉").Limit(ctxext.LimitByGroup).SetBlock(true).
+	en.OnFullMatch("来点涩图").Limit(ctxext.LimitByGroup).SetBlock(true).
 		Handle(func(ctx *zero.Ctx) {
 			go func() {
 				for i := 0; i < math.Min(cap(queue)-len(queue), 2); i++ {
